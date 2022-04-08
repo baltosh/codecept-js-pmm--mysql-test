@@ -126,7 +126,7 @@
 
     - name: Pause for 10 seconds to load mysql-server
       pause:
-        seconds: 10
+        seconds: 30
 
     - name: Run a sqript to setup pmm user
       community.docker.docker_container_exec:
