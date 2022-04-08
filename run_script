@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+eval "$(cat ansible/testdata) npx codeceptjs run ./mysql_monitoring_test.js"
