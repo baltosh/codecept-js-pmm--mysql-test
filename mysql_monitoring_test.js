@@ -1,6 +1,6 @@
 Feature('mysql_monitoring');
 
-Scenario('check that data is comming from node with name', 
+Scenario('check that data is comming from node with correct name', 
 ({I, loginPage, homeDashboardPage, sideMenuFragment, mysqlInstanceSummaryPage}
     ) => {
 
