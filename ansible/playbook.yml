@@ -108,6 +108,7 @@
     - name: Set pmm-client ip
       set_fact:
         pmm_client_ip: "{{ pmm_client_info.container.NetworkSettings.IPAddress }}"
+        pmm_client_host_name: "{{ pmm_client_info.container.Config.Hostname }}"
 
     - name: Pull an image for mysql
       community.docker.docker_image:
@@ -143,7 +144,6 @@
         mysql_server_ip: "{{ mysql_server_info.container.NetworkSettings.IPAddress }}"
         mysql_server_port: "3306"
         mysql_node_name: TEST_MYSQL_NODE
-        mysql_host_name: "{{ mysql_server_info.container.Config.Hostname }}"
 
     - name: Run a sqript to setup mysql node
       community.docker.docker_container_exec:
@@ -152,5 +152,5 @@
         chdir: /root
     
     - name: Save test data
-      local_action: "shell rm ./testdata.ini && echo \"pmmserverip = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ pmm_server_host_port }} \\nservicename = {{ mysql_node_name }} \\nnodename = {{ mysql_host_name }}\" >> ./testdata.ini"
+      local_action: "shell rm ./testdata.ini && echo \"pmmserverip = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ pmm_server_host_port }} \\nservicename = {{ mysql_node_name }} \\nnodename = {{ pmm_client_host_name }}\" >> ./testdata.ini"
 ...
