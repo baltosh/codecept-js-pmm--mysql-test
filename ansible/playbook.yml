@@ -152,5 +152,5 @@
         chdir: /root
     
     - name: Save test data
-      local_action: "shell rm ./testdata.ini && echo \"pmmserverip = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ pmm_server_host_port }} servicename = {{ mysql_node_name }} nodename = {{ pmm_client_host_name }}\" >> ./testdata"
+      local_action: "shell rm -f ./testdata && echo \"pmmserverip = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ pmm_server_host_port }} servicename = {{ mysql_node_name }} nodename = {{ pmm_client_host_name }}\" >> ./testdata"
 ...
