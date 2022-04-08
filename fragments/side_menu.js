@@ -6,8 +6,8 @@ module.exports = {
   },
 
   selectPmmDashboard(dashboard, subDashboard){
-        I.moveCursorTo(this.dropdowns.pmmDasboards)
-        I.moveCursorTo('//li[*[text()="' + dashboard + '"]]')
-        I.click('//li[*[text()="' + subDashboard + '"]]')
+    I.moveCursorTo(this.dropdowns.pmmDasboards)
+    I.moveCursorTo('//li[*[text()="' + dashboard + '"]]')
+    I.click('//li[*[text()="' + subDashboard + '"]]')
   }
 }

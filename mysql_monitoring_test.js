@@ -1,9 +1,7 @@
 Feature('mysql_monitoring');
 
 Scenario('check that data is comming from node with correct name', 
-({I, loginPage, homeDashboardPage, sideMenuFragment, mysqlInstanceSummaryPage}
-    ) => {
-
+({I, loginPage, homeDashboardPage, sideMenuFragment, mysqlInstanceSummaryPage}) => {
     const pmmServerIp = process.env.pmmserverip;
     const serviceName = process.env.servicename;
     const nodeName = process.env.nodename;
